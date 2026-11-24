@@ -1,0 +1,22 @@
+{
+  "project_id": "DEMO-BSMT-003",
+  "client_label": "Sample Client C",
+  "site_label": "Sample Site 3",
+  "prepared_date": "2026-01-15",
+  "room_type": "basement",
+  "area_sqft": 720,
+  "finish_tier": "basic",
+  "year_built": 2004,
+  "occupied": true,
+  "permit_by": "owner",
+  "demo_by_owner": false,
+  "options": {
+    "add_bathroom": true,
+    "bedroom": true,
+    "egress_window": false,
+    "ceiling": "drop",
+    "flooring": "carpet",
+    "moisture_history": true,
+    "wet_bar": false
+  }
+}

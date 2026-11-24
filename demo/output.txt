@@ -1,0 +1,265 @@
+
+========================================================================
+1. Three intakes in, three scopes out
+========================================================================
+
+DEMO-BATH-001  bathroom, 48 sq ft, standard tier
+  trades: 11  inclusions: 32  exclusions: 7  assumptions: 4  allowances: 8 (total $5,740)
+  review: Year built 1965 is before 1978. Confirm lead safe requirements and ask about suspect flooring, pipe wrap or ceiling texture before pricing.
+  wrote demo/sample_output/DEMO-BATH-001.md and .html (225 and 258 lines)
+
+DEMO-KITCH-002  kitchen, 180 sq ft, premium tier
+  trades: 13  inclusions: 29  exclusions: 6  assumptions: 4  allowances: 7 (total $25,630)
+  review: Layout change: confirm which walls are load bearing before the scope is issued.
+  review: Gas range with a layout change: gas piping is excluded. Confirm the range stays put or add a licensed gas fitter line item.
+  wrote demo/sample_output/DEMO-KITCH-002.md and .html (225 and 261 lines)
+
+DEMO-BSMT-003  basement, 720 sq ft, basic tier
+  trades: 12  inclusions: 28  exclusions: 8  assumptions: 7  allowances: 6 (total $6,280)
+  review: Moisture history reported: get the source and the fix in writing before finishing walls.
+  review: Basement bathroom: confirm the under slab rough in exists. If not, slab work and an ejector pump must be added.
+  review: Bedroom without a new egress window: verify the existing opening meets egress size and sill height, or the room cannot be listed as a bedroom.
+  wrote demo/sample_output/DEMO-BSMT-003.md and .html (237 and 270 lines)
+
+========================================================================
+2. Full Markdown for the bathroom scope
+========================================================================
+# Scope of Work: Bathroom Remodel
+
+**Prepared by:** Example Remodeling Co
+
+**Project:** DEMO-BATH-001 | **Client:** Sample Client A | **Site:** Sample Site 1
+
+**Date:** 2026-01-15
+
+## Project summary
+
+- **Room type:** Bathroom
+- **Finished area:** 48 sq ft
+- **Finish tier:** Standard
+- **Year built:** 1965
+- **Occupied during work:** Yes
+- **Permits by:** Contractor
+- **Demolition by:** Contractor
+- **Layout change:** No
+- **Shower:** walk in shower
+- **Vanity count:** 1
+- **Floor:** tile
+- **Heated floor:** Yes
+- **Exhaust fan:** new
+
+## Review before sending
+
+- [ ] Year built 1965 is before 1978. Confirm lead safe requirements and ask about suspect flooring, pipe wrap or ceiling texture before pricing.
+
+## Scope by trade
+
+### 1. General conditions
+
+**Inclusions**
+
+- Project management, scheduling of trades and one point of contact for the owner.
+- Permit application and scheduling of required inspections.
+
+**Exclusions**
+
+- Testing for and abatement of lead paint or asbestos.
+
+**Assumptions**
+
+- Home built before 1978: lead safe work practices apply to disturbed painted surfaces.
+
+**Allowances**
+
+| Item | Basis | Allowance |
+| --- | --- | ---: |
+| Permit fees | flat estimate, billed at actual cost | $250 |
+
+### 2. Site protection and demolition
+
+**Inclusions**
+
+- Floor protection from the entry door to the work area.
+- Dust barrier with zipper door at the work area.
+- Broom clean work area and a safe walkway at the end of each work day.
+- Debris haul off and disposal for all demolition listed in this scope.
+- Remove toilet, vanity, existing tub or shower, flooring and wet wall finishes.
+
+### 3. Framing and carpentry
+
+**Inclusions**
+
+- Blocking for vanity, accessories and future grab bars.
+- Frame shower curb and one recessed niche.
+
+**Exclusions**
+
+- Moving walls, doors or windows.
+
+### 4. Plumbing
+
+**Inclusions**
+
+- Fixtures set in their existing locations.
+- New shutoff valves at each fixture.
+- Install toilet.
+- Install 1 vanity faucet(s) and drain(s).
+- New pressure balanced valve and trim at the tub or shower.
+- Install shower drain set to the new pan.
+
+**Exclusions**
+
+- Relocating drains or supply lines.
+- Work on the main stack, water heater or water service.
+
+**Assumptions**
+
+- Existing supply and drain lines beyond the room are serviceable.
+
+**Allowances**
+
+| Item | Basis | Allowance |
+| --- | --- | ---: |
+| Plumbing fixtures and trim | toilet, valve trim and 1 faucet(s) | $1,130 |
+
+### 5. Electrical
+
+**Inclusions**
+
+- 1 GFCI protected receptacle(s) at the vanity.
+- Install 1 vanity light fixture(s) on existing switching.
+- Electric floor warming mat under tile with thermostat on a dedicated circuit.
+
+**Exclusions**
+
+- Panel upgrades or service changes.
+
+**Assumptions**
+
+- Existing panel has space and capacity for one new circuit.
+
+**Allowances**
+
+| Item | Basis | Allowance |
+| --- | --- | ---: |
+| Light fixtures | 1 vanity light(s) | $120 |
+| Floor warming mat and thermostat | 48 sq ft of floor | $710 |
+
+### 6. HVAC and ventilation
+
+**Inclusions**
+
+- Install new exhaust fan ducted to the exterior, up to 15 feet of duct.
+
+**Allowances**
+
+| Item | Basis | Allowance |
+| --- | --- | ---: |
+| Exhaust fan | one unit | $160 |
+
+### 7. Insulation and drywall
+
+**Inclusions**
+
+- Moisture resistant drywall on walls outside the wet area, finished ready for paint.
+- Cement backer board on tub or shower walls.
+
+### 8. Tile and waterproofing
+
+**Inclusions**
+
+- Waterproof membrane on wet walls, about 90 sq ft.
+- Wall tile at the tub or shower to ceiling height.
+- Waterproofed shower pan with flood test before tile.
+- Floor tile over uncoupling membrane, about 48 sq ft.
+
+**Exclusions**
+
+- Natural stone, mosaic or patterned layouts unless priced separately.
+
+**Assumptions**
+
+- Tile areas are estimated from the room size and confirmed by field measure.
+
+**Allowances**
+
+| Item | Basis | Allowance |
+| --- | --- | ---: |
+| Glass shower enclosure | one standard size panel and door, installed | $1,400 |
+| Tile material | 138 sq ft plus 10% waste | $1,070 |
+
+### 9. Cabinets and countertops
+
+**Inclusions**
+
+- Install 1 vanity cabinet(s) with top and sink.
+
+**Allowances**
+
+| Item | Basis | Allowance |
+| --- | --- | ---: |
+| Vanity with top | 1 unit(s) | $900 |
+
+### 10. Paint, trim and finish
+
+**Inclusions**
+
+- Prime and two finish coats on walls and ceiling.
+- New baseboard, painted, and touch up of door casing.
+- Install mirror and up to five owner supplied accessories.
+
+**Exclusions**
+
+- Replacing the entry door or window.
+
+### 11. Cleanup and closeout
+
+**Inclusions**
+
+- Final construction clean of the work area.
+- Walkthrough with the owner and one punch list visit.
+- Product manuals and warranty information handed over at closeout.
+
+## General exclusions
+
+- Hidden conditions found after surfaces are opened (rot, mold, pests, unsafe wiring or plumbing). These are priced and approved by written change order before work continues.
+- Work outside the room named in this scope, including repairs to adjacent finishes not damaged by this work.
+- Moving, storing or protecting owner furniture and personal items.
+- Design, engineering or drawings beyond field layout.
+
+## General assumptions
+
+- Work is done on weekdays during normal working hours.
+- Owner provides water, power, a parking space and clear access to the work area.
+- All finish selections are final before materials are ordered.
+- Allowances cover material cost only unless stated. Selections over or under an allowance are settled by change order.
+
+## Allowance summary
+
+| Trade | Item | Allowance |
+| --- | --- | ---: |
+| General conditions | Permit fees | $250 |
+| Plumbing | Plumbing fixtures and trim | $1,130 |
+| Electrical | Light fixtures | $120 |
+| Electrical | Floor warming mat and thermostat | $710 |
+| HVAC and ventilation | Exhaust fan | $160 |
+| Tile and waterproofing | Glass shower enclosure | $1,400 |
+| Tile and waterproofing | Tile material | $1,070 |
+| Cabinets and countertops | Vanity with top | $900 |
+| | **Total allowances** | **$5,740** |
+
+Allowance figures are placeholders for selections not yet made. They are not a price for the project.
+
+
+========================================================================
+3. A bad intake is rejected with every problem listed
+========================================================================
+  - area_sqft for a bathroom must be between 20 and 200
+  - finish_tier must be one of basic, standard, premium
+  - unknown bathroom option: sauna
+  - options.heated_floor requires options.floor to be tile
+
+========================================================================
+4. Same intake twice gives byte identical output
+========================================================================
+  identical: True

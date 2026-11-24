@@ -1,0 +1,89 @@
+# {{ title }}
+
+**Prepared by:** {{ company }}
+
+**Project:** {{ project_id }} | **Client:** {{ client_label }} | **Site:** {{ site_label }}
+{% if prepared_date %}
+
+**Date:** {{ prepared_date }}
+{% endif %}
+
+## Project summary
+
+{% for row in summary %}
+- **{{ row.label }}:** {{ row.value }}
+{% endfor %}
+{% if review_flags %}
+
+## Review before sending
+
+{% for flag in review_flags %}
+- [ ] {{ flag }}
+{% endfor %}
+{% endif %}
+
+## Scope by trade
+{% for s in sections %}
+
+### {{ s.number }}. {{ s.trade }}
+{% if s.inclusions %}
+
+**Inclusions**
+
+{% for line in s.inclusions %}
+- {{ line }}
+{% endfor %}
+{% else %}
+
+No work is included under this trade.
+{% endif %}
+{% if s.exclusions %}
+
+**Exclusions**
+
+{% for line in s.exclusions %}
+- {{ line }}
+{% endfor %}
+{% endif %}
+{% if s.assumptions %}
+
+**Assumptions**
+
+{% for line in s.assumptions %}
+- {{ line }}
+{% endfor %}
+{% endif %}
+{% if s.allowances %}
+
+**Allowances**
+
+| Item | Basis | Allowance |
+| --- | --- | ---: |
+{% for a in s.allowances %}
+| {{ a.item }} | {{ a.basis }} | {{ a.amount }} |
+{% endfor %}
+{% endif %}
+{% endfor %}
+
+## General exclusions
+
+{% for line in general_exclusions %}
+- {{ line }}
+{% endfor %}
+
+## General assumptions
+
+{% for line in general_assumptions %}
+- {{ line }}
+{% endfor %}
+
+## Allowance summary
+
+| Trade | Item | Allowance |
+| --- | --- | ---: |
+{% for a in allowance_rows %}
+| {{ a.trade }} | {{ a.item }} | {{ a.amount }} |
+{% endfor %}
+| | **Total allowances** | **{{ allowance_total }}** |
+
+Allowance figures are placeholders for selections not yet made. They are not a price for the project.

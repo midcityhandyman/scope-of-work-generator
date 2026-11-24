@@ -1,0 +1,21 @@
+{
+  "project_id": "DEMO-BATH-001",
+  "client_label": "Sample Client A",
+  "site_label": "Sample Site 1",
+  "prepared_date": "2026-01-15",
+  "room_type": "bathroom",
+  "area_sqft": 48,
+  "finish_tier": "standard",
+  "year_built": 1965,
+  "occupied": true,
+  "permit_by": "contractor",
+  "demo_by_owner": false,
+  "options": {
+    "layout_change": false,
+    "shower": "walk_in_shower",
+    "vanity_count": 1,
+    "floor": "tile",
+    "heated_floor": true,
+    "exhaust_fan": "new"
+  }
+}

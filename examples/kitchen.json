@@ -1,0 +1,24 @@
+{
+  "project_id": "DEMO-KITCH-002",
+  "client_label": "Sample Client B",
+  "site_label": "Sample Site 2",
+  "prepared_date": "2026-01-15",
+  "room_type": "kitchen",
+  "area_sqft": 180,
+  "finish_tier": "premium",
+  "year_built": 1994,
+  "occupied": true,
+  "permit_by": "contractor",
+  "demo_by_owner": true,
+  "options": {
+    "layout_change": true,
+    "cabinets": "replace",
+    "cabinet_run_ft": 24,
+    "countertop": "quartz",
+    "backsplash": true,
+    "flooring": "lvp",
+    "island": true,
+    "gas_range": true,
+    "appliances_by_owner": true
+  }
+}

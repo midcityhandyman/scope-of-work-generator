@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scope-of-work-generator"
+version = "0.1.0"
+description = "Deterministic scope of work generator for bathroom, kitchen and basement remodels."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+sowgen = "sowgen.cli:main"
+
+[tool.setuptools]
+packages = ["sowgen"]
+
+[tool.setuptools.package-data]
+sowgen = ["templates/*.tmpl"]
