@@ -23,6 +23,15 @@ class KitchenTests(unittest.TestCase):
         # backsplash 30 sq ft * 1.1 * 7 = 231 -> 240
         self.assertEqual(allowance(scope, r.TILE, "Backsplash tile"), 240)
 
+    def test_island_with_kept_countertops_is_excluded_and_flagged(self):
+        scope = scope_for("kitchen", options={"island": True, "cabinets": "keep", "countertop": "keep"})
+        cabinets = scope.section(r.CABINETS)
+        self.assertTrue(any("Island base cabinets" in line for line in cabinets.inclusions))
+        self.assertTrue(any("Countertop for the new island" in line for line in cabinets.exclusions))
+        self.assertTrue(any("island has no top" in flag for flag in scope.review_flags))
+        with_top = scope_for("kitchen", options={"island": True})
+        self.assertFalse(any("island" in flag.lower() for flag in with_top.review_flags))
+
     def test_island_adds_cabinets_top_area_and_receptacle(self):
         scope = scope_for("kitchen", options={"island": True, "countertop": "laminate"})
         self.assertEqual(allowance(scope, r.CABINETS, "Island cabinets"), 6 * 320)

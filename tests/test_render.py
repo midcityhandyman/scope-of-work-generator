@@ -3,6 +3,7 @@ import io
 import itertools
 import json
 import os
+import re
 import tempfile
 import unittest
 from pathlib import Path
@@ -186,6 +187,14 @@ class RepoHygieneTests(unittest.TestCase):
         for path in ROOT.rglob("*"):
             if path.is_file() and not skip & set(path.parts) and (path.suffix in suffixes or path.name.startswith(".")):
                 self.assertNotIn(EM_DASH, path.read_text(encoding="utf-8"), str(path))
+
+    def test_readme_excerpts_are_real_demo_output(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        captured = (ROOT / "demo" / "output.txt").read_text(encoding="utf-8")
+        blocks = re.findall(r"```(?:text|markdown)\n(.*?)```", readme, re.S)
+        self.assertEqual(len(blocks), 3)
+        for block in blocks:
+            self.assertIn(block, captured)
 
     def test_committed_samples_match_current_rules(self):
         samples = ROOT / "demo" / "sample_output"

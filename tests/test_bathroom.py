@@ -56,6 +56,18 @@ class BathroomTests(unittest.TestCase):
         # 50 * 1.1 * 4.5 = 247.5 -> 250
         self.assertEqual(allowance(scope, r.FLOORING, "Vinyl plank material"), 250)
 
+    def test_fixture_allowances_match_the_fixtures_in_scope(self):
+        def plumbing(shower):
+            return {a.item: a for a in scope_for("bathroom", options={"shower": shower}).section(r.PLUMBING).allowances}
+
+        # A new tub is installed, so it needs an allowance of its own.
+        for shower in ("tub_shower", "tub_only"):
+            self.assertEqual(plumbing(shower)["Bathtub"].amount, 650)
+        self.assertNotIn("Bathtub", plumbing("walk_in_shower"))
+        # No tub or shower means no valve, so the basis must not list valve trim.
+        self.assertEqual(plumbing("none")["Plumbing fixtures and trim"].basis, "toilet and 1 faucet(s)")
+        self.assertIn("valve trim", plumbing("walk_in_shower")["Plumbing fixtures and trim"].basis)
+
     def test_heated_floor_adds_circuit_assumption(self):
         scope = scope_for("bathroom", options={"heated_floor": True})
         electrical = scope.section(r.ELECTRICAL)

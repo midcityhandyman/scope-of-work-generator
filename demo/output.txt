@@ -15,7 +15,7 @@ DEMO-KITCH-002  kitchen, 180 sq ft, premium tier
   wrote demo/sample_output/DEMO-KITCH-002.md and .html (225 and 261 lines)
 
 DEMO-BSMT-003  basement, 720 sq ft, basic tier
-  trades: 12  inclusions: 28  exclusions: 8  assumptions: 7  allowances: 6 (total $6,280)
+  trades: 12  inclusions: 28  exclusions: 8  assumptions: 7  allowances: 6 (total $6,170)
   review: Moisture history reported: get the source and the fix in writing before finishing walls.
   review: Basement bathroom: confirm the under slab rough in exists. If not, slab work and an ejector pump must be added.
   review: Bedroom without a new egress window: verify the existing opening meets egress size and sill height, or the room cannot be listed as a bedroom.

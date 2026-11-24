@@ -38,6 +38,21 @@ class BasementTests(unittest.TestCase):
         self.assertTrue(any("rough in" in flag for flag in scope.review_flags))
         self.assertEqual(allowance(scope, r.TILE, "Tile material"), 770)
 
+    def test_bathroom_floor_is_not_counted_twice(self):
+        # 600 sq ft basement: the 40 sq ft bathroom floor is tiled, so plank covers 560.
+        scope = scope_for("basement", options={"add_bathroom": True})
+        self.assertIn("Luxury vinyl plank flooring over the slab, about 560 sq ft.",
+                      scope.section(r.FLOORING).inclusions)
+        # 560 * 1.1 * 4.5 = 2772 -> 2780
+        self.assertEqual(allowance(scope, r.FLOORING, "Vinyl plank material"), 2780)
+        # 600 * 1.1 * 4.5 = 2970 with no bathroom
+        self.assertEqual(allowance(scope_for("basement"), r.FLOORING, "Vinyl plank material"), 2970)
+
+    def test_egress_window_is_cut_before_framing(self):
+        trades = scope_for("basement", options={"bedroom": True, "egress_window": True}).trades()
+        self.assertEqual(trades.index(r.EGRESS), trades.index(r.DEMO) + 1)
+        self.assertLess(trades.index(r.EGRESS), trades.index(r.FRAMING))
+
     def test_bedroom_without_egress_is_flagged(self):
         scope = scope_for("basement", options={"bedroom": True})
         egress = scope.section(r.EGRESS)

@@ -29,9 +29,12 @@ EGRESS = "Egress window"
 PAINT = "Paint, trim and finish"
 CLOSEOUT = "Cleanup and closeout"
 
-# Fixed order: roughly the order the work happens on site.
-TRADES = (GENERAL, DEMO, FRAMING, PLUMBING, ELECTRICAL, HVAC, DRYWALL, TILE,
-          CABINETS, APPLIANCES, FLOORING, EGRESS, PAINT, CLOSEOUT)
+# Fixed order: roughly the order the work happens on site. The egress window
+# comes right after demolition because the foundation is cut before walls are framed.
+TRADES = (GENERAL, DEMO, EGRESS, FRAMING, PLUMBING, ELECTRICAL, HVAC, DRYWALL, TILE,
+          CABINETS, APPLIANCES, FLOORING, PAINT, CLOSEOUT)
+
+BASEMENT_BATH_FLOOR_SQFT = 40  # tiled bathroom floor, taken out of the main flooring area
 
 TIER_INDEX = {"basic": 0, "standard": 1, "premium": 2}
 WASTE = 1.10  # ten percent overage on sheet and tile goods
@@ -176,8 +179,11 @@ def _bathroom(b: ScopeBuilder) -> None:
         b.include(PLUMBING, "Install new tub with drain and overflow.")
     if shower == "walk_in_shower":
         b.include(PLUMBING, "Install shower drain set to the new pan.")
-    b.allow(PLUMBING, "Plumbing fixtures and trim", f"toilet, valve trim and {vanities} faucet(s)",
+    valve = "" if shower == "none" else ", valve trim"
+    b.allow(PLUMBING, "Plumbing fixtures and trim", f"toilet{valve} and {vanities} faucet(s)",
             b.tier(500, 950, 1900) + vanities * b.tier(90, 180, 350))
+    if shower in ("tub_shower", "tub_only"):
+        b.allow(PLUMBING, "Bathtub", "one standard alcove tub", b.tier(350, 650, 1500))
     b.assume(PLUMBING, "Existing supply and drain lines beyond the room are serviceable.")
     b.exclude(PLUMBING, "Work on the main stack, water heater or water service.")
 
@@ -320,6 +326,10 @@ def _kitchen(b: ScopeBuilder) -> None:
     else:
         b.exclude(CABINETS, "Countertop replacement (existing tops to remain).")
         b.assume(CABINETS, "Existing countertops can be worked around without removal.")
+        if island_sqft:
+            b.exclude(CABINETS, "Countertop for the new island (no countertop material is selected).")
+            b.flag("Island added while existing countertops stay: the island has no top in this scope. "
+                   "Choose a countertop material or add the island top as a line item.")
 
     if i.opt("backsplash"):
         splash = round(run * 1.5, 1)  # 18 inches between counter and uppers
@@ -390,7 +400,7 @@ def _basement(b: ScopeBuilder) -> None:
                "an ejector pump must be added.")
         b.include(HVAC, "Bathroom exhaust fan ducted to the exterior.")
         b.include(TILE, "Shower wall tile over waterproof membrane, about 60 sq ft.",
-                  "Bathroom floor tile, about 40 sq ft.")
+                  f"Bathroom floor tile, about {BASEMENT_BATH_FLOOR_SQFT} sq ft.")
         b.allow(TILE, "Tile material", "100 sq ft plus 10% waste", 100 * WASTE * b.tier(4, 7, 12))
     if i.opt("wet_bar"):
         b.include(PLUMBING, "Bar sink with supply and drain tied in within 10 feet of existing lines.")
@@ -431,13 +441,16 @@ def _basement(b: ScopeBuilder) -> None:
         b.flag("Bedroom without a new egress window: verify the existing opening meets egress size "
                "and sill height, or the room cannot be listed as a bedroom.")
 
+    # The bathroom floor is tiled under the tile trade, so it is not counted again here.
+    floor = area - BASEMENT_BATH_FLOOR_SQFT if bath else area
     if i.opt("flooring") == "lvp":
-        b.include(FLOORING, f"Luxury vinyl plank flooring over the slab, about {sqft(area)}.")
-        b.allow(FLOORING, "Vinyl plank material", f"{sqft(area)} plus 10% waste", area * WASTE * b.tier(3, 4.5, 6.5))
+        b.include(FLOORING, f"Luxury vinyl plank flooring over the slab, about {sqft(floor)}.")
+        b.allow(FLOORING, "Vinyl plank material", f"{sqft(floor)} plus 10% waste",
+                floor * WASTE * b.tier(3, 4.5, 6.5))
     else:
-        b.include(FLOORING, f"Carpet and pad over the slab, about {sqft(area)}.")
-        b.allow(FLOORING, "Carpet and pad material", f"{sqft(area)} plus 10% waste",
-                area * WASTE * b.tier(2.5, 4, 6))
+        b.include(FLOORING, f"Carpet and pad over the slab, about {sqft(floor)}.")
+        b.allow(FLOORING, "Carpet and pad material", f"{sqft(floor)} plus 10% waste",
+                floor * WASTE * b.tier(2.5, 4, 6))
     b.exclude(FLOORING, "Slab grinding, leveling compound or raised subfloor panels.")
 
     b.include(PAINT, "Prime and two finish coats on walls and drywall ceilings.",

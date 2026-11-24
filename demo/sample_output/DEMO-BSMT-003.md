@@ -57,7 +57,19 @@
 - Debris haul off and disposal for all demolition listed in this scope.
 - Remove loose wall coverings, old shelving and abandoned framing in the finish area.
 
-### 3. Framing and carpentry
+### 3. Egress window
+
+No work is included under this trade.
+
+**Exclusions**
+
+- New egress window or well.
+
+**Assumptions**
+
+- An existing code compliant egress opening serves the bedroom.
+
+### 4. Framing and carpentry
 
 **Inclusions**
 
@@ -73,7 +85,7 @@
 
 - Finished ceiling height meets the local minimum after framing and flooring.
 
-### 4. Plumbing
+### 5. Plumbing
 
 **Inclusions**
 
@@ -93,7 +105,7 @@
 | --- | --- | ---: |
 | Bathroom fixtures | toilet, vanity, faucet and shower trim | $1,400 |
 
-### 5. Electrical
+### 6. Electrical
 
 **Inclusions**
 
@@ -115,7 +127,7 @@
 | --- | --- | ---: |
 | Recessed lights | 18 fixtures, one per 40 sq ft | $450 |
 
-### 6. HVAC and ventilation
+### 7. HVAC and ventilation
 
 **Inclusions**
 
@@ -130,7 +142,7 @@
 
 - Existing heating and cooling equipment has capacity for the added space.
 
-### 7. Insulation and drywall
+### 8. Insulation and drywall
 
 **Inclusions**
 
@@ -144,7 +156,7 @@
 | --- | --- | ---: |
 | Ceiling tile and grid | 720 sq ft plus 10% waste | $1,590 |
 
-### 8. Tile and waterproofing
+### 9. Tile and waterproofing
 
 **Inclusions**
 
@@ -157,12 +169,12 @@
 | --- | --- | ---: |
 | Tile material | 100 sq ft plus 10% waste | $440 |
 
-### 9. Flooring
+### 10. Flooring
 
 **Inclusions**
 
 - Slab moisture test before flooring is installed.
-- Carpet and pad over the slab, about 720 sq ft.
+- Carpet and pad over the slab, about 680 sq ft.
 
 **Exclusions**
 
@@ -172,19 +184,7 @@
 
 | Item | Basis | Allowance |
 | --- | --- | ---: |
-| Carpet and pad material | 720 sq ft plus 10% waste | $1,980 |
-
-### 10. Egress window
-
-No work is included under this trade.
-
-**Exclusions**
-
-- New egress window or well.
-
-**Assumptions**
-
-- An existing code compliant egress opening serves the bedroom.
+| Carpet and pad material | 680 sq ft plus 10% waste | $1,870 |
 
 ### 11. Paint, trim and finish
 
@@ -230,8 +230,8 @@ No work is included under this trade.
 | Electrical | Recessed lights | $450 |
 | Insulation and drywall | Ceiling tile and grid | $1,590 |
 | Tile and waterproofing | Tile material | $440 |
-| Flooring | Carpet and pad material | $1,980 |
+| Flooring | Carpet and pad material | $1,870 |
 | Paint, trim and finish | Interior doors and hardware | $420 |
-| | **Total allowances** | **$6,280** |
+| | **Total allowances** | **$6,170** |
 
 Allowance figures are placeholders for selections not yet made. They are not a price for the project.
